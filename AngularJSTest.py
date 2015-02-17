@@ -1,7 +1,7 @@
 from flask import Flask
 from flask.templating import render_template
 
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__, static_folder="./static", static_url_path='')
 
 
 @app.route('/colorPicker')
@@ -16,6 +16,9 @@ def time():
 def guidebook():
     return app.send_static_file('guidebook.html')
 
+@app.route('/dirtest')
+def dirtest():
+    return app.send_static_file('dirtest.html')
 
 if __name__ == '__main__':
     app.debug = True
